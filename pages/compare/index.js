@@ -18,8 +18,6 @@ import {
   Col,
    Dropdown, DropdownMenu, DropdownToggle
 } from "reactstrap";
-import { DateRangePicker } from 'react-date-range';
-import { format } from 'date-fns';
 import Layout from "layouts";
 import {
   chartOptions,
@@ -30,11 +28,43 @@ import {
 import Header from "components/Header";
 import {getMetricData} from "components/Header"
 
+const getQueryParams = () => {
+    let urlString = document.URL;
+    if(urlString && urlString.includes('?')){
+      //console.log(urlString.split('?'))
+      let paramString = urlString.split('?')[1]; 
+      let queryString = paramString.split('&'); 
+      const params = {
+        id: (queryString[0]).replace("compare1=", ""),
+        //date: (queryString[1]).replace("date=", ""),
+        selectedRange: queryString[1].replace("compare2=", "")
+      };
+      return params;
+    }
+  
+    return {
+      compare1: "ios",
+      compare2: 'android'
+    }
+  }
+
 const Dashboard = () => {
   const [activeNav, setActiveNav] = useState(1);
   const [chartExample1Data, setChartExample1Data] = useState("data1");
   const [popoverOpen, setPopoverOpen] = useState(false);
-  const metricData = getMetricData();
+  const metricData =  {
+    "id": 4,
+    "date": "2020-11-25",
+    "framerate": 3894,
+    "bitrate": 5078,
+    "concurrentplay": 7369,
+    "rebuffering": 44.54,
+    "plays": 2522,
+    "uniquedevice": 1877,
+    "endedplay": 741,
+    "attempts": 4005,
+    "range": "1"
+};
 
   if (window.Chart) {
     parseOptions(Chart, chartOptions());
@@ -60,12 +90,13 @@ const Dashboard = () => {
     setDropDownVal(id)
     setDropdownOpen(prevState => !prevState)
   };
+  const compareItems = getQueryParams();
   console.log(selectedDropdownVal,'selectedDropdownVal')
   return (
     <React.Fragment>
       <div className="d-md-flex pb-4 pt-5 pt-md-7">
         <div className="container-fluid d-flex justify-content-between">
-          <div style={{cursor: "pointer",background: "#5e72e4",padding: "10px",color: "white",borderRadius: "10px",width:"150px",textAlign:"center"}}>
+          <div style={{cursor: "pointer",background: "#5e72e4",padding: "10px",color: "white",borderRadius: "10px",width:"150px",height: "50px",textAlign:"center"}}>
             <Dropdown isOpen={dropdownOpen} toggle={() =>toggle(null)}>
                 <DropdownToggle
                 caret
@@ -84,6 +115,9 @@ const Dashboard = () => {
               </DropdownMenu>
             </Dropdown>
           </div>
+            <div className=".col-sm-12 .col-md-12 .offset-md-5">
+                <div style={{fontSize: "32px",fontWeight:"bold"}}>{"Comparing"+ " " + compareItems.compare1 + " and " + compareItems.compare2}</div>
+            </div>
           <div>
             <h2>Dashboard</h2>
           </div>
