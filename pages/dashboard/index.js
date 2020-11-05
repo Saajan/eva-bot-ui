@@ -16,6 +16,7 @@ import {
   Container,
   Row,
   Col,
+   Dropdown, DropdownMenu, DropdownToggle
 } from "reactstrap";
 import { DateRangePicker } from 'react-date-range';
 import { format } from 'date-fns';
@@ -27,20 +28,14 @@ import {
   chartExample2,
 } from "variables/charts.js";
 import Header from "components/Header";
-
+import {getMetricData} from "components/Header"
 
 const Dashboard = () => {
   const [activeNav, setActiveNav] = useState(1);
   const [chartExample1Data, setChartExample1Data] = useState("data1");
   const [popoverOpen, setPopoverOpen] = useState(false);
-  const [state, setState] = useState([
-    {
-      startDate: new Date(),
-      endDate: new Date(),
-      key: 'selection'
-    }
-  ]);
-  console.log({ state }, state.startDate);
+  const metricData = getMetricData();
+
   if (window.Chart) {
     parseOptions(Chart, chartOptions());
   };
@@ -48,26 +43,46 @@ const Dashboard = () => {
     setActiveNav(index);
     setChartExample1Data(chartExample1Data === "data1" ? "data2" : "data1",);
   };
-  const toggle = () => setPopoverOpen(!popoverOpen);
+
+  const ranges = {
+    1 : "Today",
+    2: "Yesterday",
+    3: "This week",
+    4: "This month"
+  }
+  
+
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [selectedDropdownVal, setDropDownVal] = useState(null);
+  const toggle = (id) => {
+    console.log(id)
+    setDropDownVal(id)
+    console.log(selectedDropdownVal)
+    setDropdownOpen(prevState => !prevState)
+  };
+  console.log(selectedDropdownVal)
   return (
     <React.Fragment>
       <div className="d-md-flex pb-4 pt-5 pt-md-7">
         <div className="container-fluid d-flex justify-content-between">
-          <div>
-            <Button id="Popover1" type="button">
-              {format(state[0].startDate, 'dd/MM/yyyy')} - {format(state[0].endDate, 'dd/MM/yyyy')}
-            </Button>
-            <Popover placement="bottom" text="Left" isOpen={popoverOpen} target="Popover1" toggle={toggle}>
-              <DateRangePicker
-                onChange={item => setState([item.selection])}
-                showSelectionPreview={true}
-                moveRangeOnFirstSelection={false}
-                months={2}
-                ranges={state}
-                maxDate={new Date()}
-                direction="horizontal"
-              />
-            </Popover>
+          <div style={{cursor: "pointer",background: "#5e72e4",padding: "10px",color: "white",borderRadius: "10px",width:"150px",textAlign:"center"}}>
+            <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+                <DropdownToggle
+                caret
+                style={{cursor: "pointer"}}
+                tag="span"
+                data-toggle="dropdown"
+                aria-expanded={dropdownOpen}
+                >
+                    { (dropdownOpen || !selectedDropdownVal) ? "Select range" : ranges[selectedDropdownVal]}
+              </DropdownToggle>
+              <DropdownMenu >
+              <div style={{padding: "8px",textAlign: "center", cursor: "pointer"}} onClick={() =>toggle(1)}>Today</div>
+              <div style={{padding: "8px", textAlign: "center", cursor: "pointer"}} onClick={() =>toggle(2)}>Yesterday</div>
+              <div style={{padding: "8px", textAlign: "center", cursor: "pointer"}} onClick={() =>toggle(3)}>This week</div>
+              <div style={{padding: "8px", textAlign: "center", cursor: "pointer"}} onClick={() =>toggle(4)}>This month</div>
+              </DropdownMenu>
+            </Dropdown>
           </div>
           <div>
             <h2>Dashboard</h2>

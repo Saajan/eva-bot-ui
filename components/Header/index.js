@@ -2,64 +2,103 @@ import React from "react";
 
 // reactstrap components
 import { Card, CardBody, CardTitle, Container, Row, Col } from "reactstrap";
+const metricsData = require("../../data/metrics.json");
+
+const getQueryParams = () => {
+  console.log(window)
+  console.log(document.URL)
+  let urlString = document.URL;
+  if(urlString && urlString.includes('?')){
+    //console.log(urlString.split('?'))
+    let paramString = urlString.split('?')[1]; 
+    let queryString = paramString.split('&'); 
+    const params = {
+      id: (queryString[0]).replace("id=", ""),
+      date: (queryString[1]).replace("date=", "")
+    };
+    return params;
+  }
+
+  return {
+    id: 1,
+    date:"2020-11-28"
+  }
+}
+
+export const getMetricData = () => {
+  const queryParams = getQueryParams();
+  const data = metricsData.find(item => (item.id == queryParams.id && item.date == queryParams.date));
+  return data;
+}
+
 
 const Header = () => {
+  const metricData = getMetricData();
+  
   const jsonData = [{
     cardTitle: "Attempts",
-    cardValue: "2300",
+    cardValue: metricData.attempts,
     cardIcon: "fa-chart-bar",
     insightValue: " 3.48%",
     insightStatus: true,
-    insightDuration: "Since yesterday"
+    insightDuration: "Since yesterday",
+    selectedDate: new Date(metricData.date)
   }, {
     cardTitle: "Bitrate",
-    cardValue: "3.8",
+    cardValue: metricData.bitrate,
     cardIcon: "fa-bolt",
     insightValue: " 3.48%",
     insightStatus: false,
-    insightDuration: "Since yesterday"
+    insightDuration: "Since yesterday",
+    selectedDate: new Date(metricData.date)
   }, {
     cardTitle: "Framerate",
-    cardValue: "2.7",
+    cardValue: metricData.framerate,
     cardIcon: "fa-chart-line",
     insightValue: " 3.48%",
     insightStatus: true,
-    insightDuration: "Since yesterday"
+    insightDuration: "Since yesterday",
+    selectedDate: new Date(metricData.date)
   }, {
     cardTitle: "Concurrent Plays",
-    cardValue: "350,897",
+    cardValue: metricData.concurrentplay,
     cardIcon: "fa-users",
     insightValue: " 3.48%",
     insightStatus: true,
-    insightDuration: "Since yesterday"
+    insightDuration: "Since yesterday",
+    selectedDate: new Date(metricData.date)
   }, {
     cardTitle: "Plays",
-    cardValue: "4,59,845",
+    cardValue: metricData.plays,
     cardIcon: "fa-play",
     insightValue: " 3.48%",
     insightStatus: true,
-    insightDuration: "Since yesterday"
+    insightDuration: "Since yesterday",
+    selectedDate: new Date(metricData.date)
   }, {
     cardTitle: "Unique Devices",
-    cardValue: "32,568",
+    cardValue: metricData.uniquedevice,
     cardIcon: "fa-mobile",
     insightValue: " 3.48%",
     insightStatus: true,
-    insightDuration: "Since yesterday"
+    insightDuration: "Since yesterday",
+    selectedDate: new Date(metricData.date)
   }, {
     cardTitle: "Rebuffering Ratio",
-    cardValue: "34%",
+    cardValue: metricData.rebuffering,
     cardIcon: "fa-percent",
     insightValue: " 3.48%",
     insightStatus: true,
-    insightDuration: "Since yesterday"
+    insightDuration: "Since yesterday",
+    selectedDate: new Date(metricData.date)
   }, {
     cardTitle: "Ended Plays",
-    cardValue: "23,456",
+    cardValue: metricData.endedplay,
     cardIcon: "fa-chart-area",
     insightValue: " 3.48%",
     insightStatus: true,
-    insightDuration: "Since yesterday"
+    insightDuration: "Since yesterday",
+    selectedDate: new Date(metricData.date)
   }]
   return (
     <React.Fragment>
