@@ -28,13 +28,11 @@ import {
   chartExample2,
 } from "variables/charts.js";
 import Header from "components/Header";
-import {getMetricData} from "components/Header"
 
 const Dashboard = () => {
   const [activeNav, setActiveNav] = useState(1);
   const [chartExample1Data, setChartExample1Data] = useState("data1");
   const [popoverOpen, setPopoverOpen] = useState(false);
-  const metricData = getMetricData();
 
   if (window.Chart) {
     parseOptions(Chart, chartOptions());

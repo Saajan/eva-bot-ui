@@ -1,104 +1,107 @@
 import React from "react";
-
-// reactstrap components
+import { useRouter } from 'next/router'
 import { Card, CardBody, CardTitle, Container, Row, Col } from "reactstrap";
 const metricsData = require("../../data/metrics.json");
+import subDays from 'date-fns/subDays';
+import format from 'date-fns/format'
 
-const getQueryParams = () => {
-  console.log(window)
-  console.log(document.URL)
-  let urlString = document.URL;
-  if(urlString && urlString.includes('?')){
-    //console.log(urlString.split('?'))
-    let paramString = urlString.split('?')[1]; 
-    let queryString = paramString.split('&'); 
-    const params = {
-      id: (queryString[0]).replace("id=", ""),
-      date: (queryString[1]).replace("date=", "")
-    };
-    return params;
+const getQueryParams = (query) => {
+  const { range } = query;
+  let date = '';
+  switch (range) {
+    case 'today':
+      date = format(new Date(), 'yyyy-MM-dd');
+      break;
+    case 'yesterday':
+      let yResult = subDays(new Date(), 1)
+      date = format(yResult, 'yyyy-MM-dd');
+      break;
+    case 'week':
+      let wResult = subDays(new Date(), 7)
+      date = format(wResult, 'yyyy-MM-dd');
+      break;
+    case 'month':
+      let mResult = subDays(new Date(), 30)
+      date = format(mResult, 'yyyy-MM-dd');
+      break;
+    default:
+      date = format(new Date(), 'yyyy-MM-dd');
+      break;
   }
-
+  const obj = metricsData.find(o => o.date === String(date));
   return {
-    id: 1,
-    date:"2020-11-28"
-  }
+    date: date,
+    data: obj
+  };
 }
-
-export const getMetricData = () => {
-  const queryParams = getQueryParams();
-  const data = metricsData.find(item => (item.id == queryParams.id && item.date == queryParams.date));
-  return data;
-}
-
 
 const Header = () => {
-  const metricData = getMetricData();
-  
+  const { query } = useRouter();
+  const metricData = getQueryParams(query);
   const jsonData = [{
     cardTitle: "Attempts",
-    cardValue: metricData.attempts,
+    cardValue: metricData.data.attempts,
     cardIcon: "fa-chart-bar",
     insightValue: " 3.48%",
     insightStatus: true,
     insightDuration: "Since yesterday",
-    selectedDate: new Date(metricData.date)
+    selectedDate: metricData.date
   }, {
     cardTitle: "Bitrate",
-    cardValue: metricData.bitrate,
+    cardValue: metricData.data.bitrate,
     cardIcon: "fa-bolt",
     insightValue: " 3.48%",
     insightStatus: false,
     insightDuration: "Since yesterday",
-    selectedDate: new Date(metricData.date)
+    selectedDate: metricData.date
   }, {
     cardTitle: "Framerate",
-    cardValue: metricData.framerate,
+    cardValue: metricData.data.framerate,
     cardIcon: "fa-chart-line",
     insightValue: " 3.48%",
     insightStatus: true,
     insightDuration: "Since yesterday",
-    selectedDate: new Date(metricData.date)
+    selectedDate: metricData.date
   }, {
     cardTitle: "Concurrent Plays",
-    cardValue: metricData.concurrentplay,
+    cardValue: metricData.data.concurrentplay,
     cardIcon: "fa-users",
     insightValue: " 3.48%",
     insightStatus: true,
     insightDuration: "Since yesterday",
-    selectedDate: new Date(metricData.date)
+    selectedDate: metricData.date
   }, {
     cardTitle: "Plays",
-    cardValue: metricData.plays,
+    cardValue: metricData.data.plays,
     cardIcon: "fa-play",
     insightValue: " 3.48%",
     insightStatus: true,
     insightDuration: "Since yesterday",
-    selectedDate: new Date(metricData.date)
+    selectedDate: metricData.date
   }, {
     cardTitle: "Unique Devices",
-    cardValue: metricData.uniquedevice,
+    cardValue: metricData.data.uniquedevice,
     cardIcon: "fa-mobile",
     insightValue: " 3.48%",
     insightStatus: true,
     insightDuration: "Since yesterday",
-    selectedDate: new Date(metricData.date)
+    selectedDate: metricData.date
   }, {
     cardTitle: "Rebuffering Ratio",
-    cardValue: metricData.rebuffering,
+    cardValue: metricData.data.rebuffering,
     cardIcon: "fa-percent",
     insightValue: " 3.48%",
     insightStatus: true,
     insightDuration: "Since yesterday",
-    selectedDate: new Date(metricData.date)
+    selectedDate: metricData.date
   }, {
     cardTitle: "Ended Plays",
-    cardValue: metricData.endedplay,
+    cardValue: metricData.data.endedplay,
     cardIcon: "fa-chart-area",
     insightValue: " 3.48%",
     insightStatus: true,
     insightDuration: "Since yesterday",
-    selectedDate: new Date(metricData.date)
+    selectedDate: metricData.date
   }]
   return (
     <React.Fragment>
@@ -108,7 +111,7 @@ const Header = () => {
             {/* Card stats */}
             <Row>
               {jsonData.map((data, i) => {
-                return (<Col lg="6" xl="3" key={i}  className="pb-3">
+                return (<Col lg="6" xl="3" key={i} className="pb-3">
                   <Card className="card-stats shadow mb-4 mb-xl-0">
                     <CardBody>
                       <Row>
