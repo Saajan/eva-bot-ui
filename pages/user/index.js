@@ -6,12 +6,9 @@ import { TabContent, TabPane, Nav, NavItem,
 import classnames from 'classnames';
 
 import Layout from "layouts";
-import BroadcastForm from "components/BroadcastForm";
-import Header from "components/Header";
-
-const AdminDashboard = () => {
+const UserDashboard = () => {
   const [activeTab, setActiveTab] = useState('1');
-  console.log("BroadcastForm");
+
   const toggle = tab => {
     if(activeTab !== tab) setActiveTab(tab);
   }
@@ -27,15 +24,7 @@ const AdminDashboard = () => {
             className={classnames({ active: activeTab === '1' })}
             onClick={() => { toggle('1'); }}
           >
-            Broadcast
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink
-            className={classnames({ active: activeTab === '2' })}
-            onClick={() => { toggle('2'); }}
-          >
-            Broadcast Status
+            User
           </NavLink>
         </NavItem>
       </Nav>
@@ -43,15 +32,10 @@ const AdminDashboard = () => {
         <TabPane tabId="1">
            <Row>
               <Card body>
-                <CardTitle>Broadcast Message</CardTitle>
-                <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                <BroadcastForm />
+                <CardTitle>User List</CardTitle>
+                <CardText>Placeholder for the User table.</CardText>
+                <Button>Hola</Button>
               </Card>
-          </Row>
-        </TabPane>
-        <TabPane tabId="2">
-          <Row>
-              Message status table to come here
           </Row>
         </TabPane>
       </TabContent>
@@ -62,6 +46,6 @@ const AdminDashboard = () => {
   );
 }
 
-AdminDashboard.layout = Layout;
+UserDashboard.layout = Layout;
 
-export default AdminDashboard;
+export default UserDashboard;
