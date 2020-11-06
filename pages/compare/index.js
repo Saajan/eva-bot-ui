@@ -48,7 +48,7 @@ const getQueryParams = () => {
     }
   }
 
-const Dashboard = () => {
+const CompareDashboard = () => {
   const [activeNav, setActiveNav] = useState(1);
   const [chartExample1Data, setChartExample1Data] = useState("data1");
   const [popoverOpen, setPopoverOpen] = useState(false);
@@ -119,7 +119,7 @@ const Dashboard = () => {
                 <div style={{fontSize: "32px",fontWeight:"bold"}}>{"Comparing"+ " " + compareItems.compare1 + " and " + compareItems.compare2}</div>
             </div>
           <div>
-            <h2>Dashboard</h2>
+            <h2>CompareDashboard</h2>
           </div>
         </div>
       </div>
@@ -381,6 +381,6 @@ const Dashboard = () => {
   );
 }
 
-Dashboard.layout = Layout;
+CompareDashboard.layout = Layout;
 
-export default Dashboard;
+export default CompareDashboard;
