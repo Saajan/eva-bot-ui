@@ -6,33 +6,32 @@ import subDays from 'date-fns/subDays';
 import format from 'date-fns/format'
 
 const getQueryParams = (query) => {
-  const { range } = query;
-  let date = '';
+  const { id, range } = query;
+  
   switch (range) {
     case 'today':
-      date = format(new Date(), 'yyyy-MM-dd');
-      break;
+      retun 1;
     case 'yesterday':
-      let yResult = subDays(new Date(), 1)
-      date = format(yResult, 'yyyy-MM-dd');
-      break;
+      return 2;
     case 'week':
-      let wResult = subDays(new Date(), 7)
-      date = format(wResult, 'yyyy-MM-dd');
-      break;
+      return 3;
     case 'month':
-      let mResult = subDays(new Date(), 30)
-      date = format(mResult, 'yyyy-MM-dd');
-      break;
+      return 4;
     default:
-      date = format(new Date(), 'yyyy-MM-dd');
-      break;
+      return 1;
   }
-  const obj = metricsData.find(o => o.date === String(date));
+  
   return {
-    date: date,
-    data: obj
+    id, 
+    range
   };
+}
+
+export const getMetricData = () => {
+  const queryParams = getQueryParams();
+  const data = metricsData.find(item => (item.id == queryParams.id && item.range == queryParams.selectedRange));
+  return data;
+}
 }
 
 const Header = () => {
@@ -45,7 +44,9 @@ const Header = () => {
     insightValue: " 3.48%",
     insightStatus: true,
     insightDuration: "Since yesterday",
-    selectedDate: metricData.date
+    //selectedDate: new Date(metricData.date)
+    selectedRange: metricData.selectedRange
+
   }, {
     cardTitle: "Bitrate",
     cardValue: metricData.data.bitrate,
@@ -53,7 +54,8 @@ const Header = () => {
     insightValue: " 3.48%",
     insightStatus: false,
     insightDuration: "Since yesterday",
-    selectedDate: metricData.date
+    //selectedDate: new Date(metricData.date)
+    selectedRange: metricData.selectedRange
   }, {
     cardTitle: "Framerate",
     cardValue: metricData.data.framerate,
@@ -61,7 +63,8 @@ const Header = () => {
     insightValue: " 3.48%",
     insightStatus: true,
     insightDuration: "Since yesterday",
-    selectedDate: metricData.date
+    //selectedDate: new Date(metricData.date)
+    selectedRange: metricData.selectedRange
   }, {
     cardTitle: "Concurrent Plays",
     cardValue: metricData.data.concurrentplay,
@@ -69,7 +72,8 @@ const Header = () => {
     insightValue: " 3.48%",
     insightStatus: true,
     insightDuration: "Since yesterday",
-    selectedDate: metricData.date
+    //selectedDate: new Date(metricData.date)
+    selectedRange: metricData.selectedRange
   }, {
     cardTitle: "Plays",
     cardValue: metricData.data.plays,
@@ -77,6 +81,7 @@ const Header = () => {
     insightValue: " 3.48%",
     insightStatus: true,
     insightDuration: "Since yesterday",
+    //selectedDate: new Date(metricData.date)
     selectedDate: metricData.date
   }, {
     cardTitle: "Unique Devices",
@@ -85,7 +90,8 @@ const Header = () => {
     insightValue: " 3.48%",
     insightStatus: true,
     insightDuration: "Since yesterday",
-    selectedDate: metricData.date
+    //selectedDate: new Date(metricData.date)
+    selectedRange: metricData.selectedRange
   }, {
     cardTitle: "Rebuffering Ratio",
     cardValue: metricData.data.rebuffering,
@@ -93,7 +99,9 @@ const Header = () => {
     insightValue: " 3.48%",
     insightStatus: true,
     insightDuration: "Since yesterday",
-    selectedDate: metricData.date
+    //selectedDate: new Date(metricData.date)
+    selectedRange: metricData.selectedRange
+
   }, {
     cardTitle: "Ended Plays",
     cardValue: metricData.data.endedplay,
@@ -101,7 +109,8 @@ const Header = () => {
     insightValue: " 3.48%",
     insightStatus: true,
     insightDuration: "Since yesterday",
-    selectedDate: metricData.date
+    //selectedDate: new Date(metricData.date)
+    selectedRange: metricData.selectedRange
   }]
   return (
     <React.Fragment>
