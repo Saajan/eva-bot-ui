@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import { useRouter } from 'next/router'
-import { Card, CardBody, CardTitle, Container, Row, Col } from "reactstrap";
+import { Card, CardBody, CardTitle, Container, Row, Col,
+  Dropdown, DropdownMenu, DropdownToggle } from "reactstrap";
 const metricsData = require("../../data/metrics.json");
 import subDays from 'date-fns/subDays';
 import format from 'date-fns/format'
@@ -8,36 +9,61 @@ import format from 'date-fns/format'
 const getQueryParams = (query) => {
   const { range } = query;
   let date = '';
+  let toggle_id = 1;
   switch (range) {
     case 'today':
       date = format(new Date(), 'yyyy-MM-dd');
+      toggle_id
       break;
     case 'yesterday':
       let yResult = subDays(new Date(), 1)
       date = format(yResult, 'yyyy-MM-dd');
+      toggle_id = 2;
       break;
     case 'week':
       let wResult = subDays(new Date(), 7)
       date = format(wResult, 'yyyy-MM-dd');
+      toggle_id = 3;
       break;
     case 'month':
       let mResult = subDays(new Date(), 30)
       date = format(mResult, 'yyyy-MM-dd');
+      toggle_id = 4;
       break;
     default:
       date = format(new Date(), 'yyyy-MM-dd');
+      toggle_id = 1;
       break;
   }
   const obj = metricsData.find(o => o.date === String(date));
   return {
     date: date,
-    data: obj
+    data: obj,
+    range: toggle_id,
   };
+}
+
+const ranges = {
+  1 : "Today",
+  2: "Yesterday",
+  3: "This week",
+  4: "This month"
 }
 
 const Header = () => {
   const { query } = useRouter();
   const metricData = getQueryParams(query);
+
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [selectedDropdownVal, setDropDownVal] = useState(metricData.range);
+  const toggle = (id) => {
+    console.log(id)
+    setDropDownVal(id)
+    console.log(selectedDropdownVal)
+    setDropdownOpen(prevState => !prevState)
+  };
+  console.log(selectedDropdownVal)
+
   const jsonData = [{
     cardTitle: "Attempts",
     cardValue: metricData.data.attempts,
@@ -105,6 +131,32 @@ const Header = () => {
   }]
   return (
     <React.Fragment>
+      <div className="d-md-flex pb-4 pt-5 pt-md-7">
+        <div className="container-fluid d-flex justify-content-between">
+          <div style={{cursor: "pointer",background: "#5e72e4",padding: "10px",color: "white",borderRadius: "10px",width:"150px",textAlign:"center"}}>
+            <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+                <DropdownToggle
+                caret
+                style={{cursor: "pointer"}}
+                tag="span"
+                data-toggle="dropdown"
+                aria-expanded={dropdownOpen}
+                >
+                    { (dropdownOpen || !selectedDropdownVal) ? "Select range" : ranges[selectedDropdownVal]}
+              </DropdownToggle>
+              <DropdownMenu >
+              <div style={{padding: "8px",textAlign: "center", cursor: "pointer"}} onClick={() =>toggle(1)}>Today</div>
+              <div style={{padding: "8px", textAlign: "center", cursor: "pointer"}} onClick={() =>toggle(2)}>Yesterday</div>
+              <div style={{padding: "8px", textAlign: "center", cursor: "pointer"}} onClick={() =>toggle(3)}>This week</div>
+              <div style={{padding: "8px", textAlign: "center", cursor: "pointer"}} onClick={() =>toggle(4)}>This month</div>
+              </DropdownMenu>
+            </Dropdown>
+          </div>
+          <div>
+            <h2>Dashboard</h2>
+          </div>
+        </div>
+      </div>
       <div className="header pb-8">
         <Container fluid>
           <div className="header-body">
