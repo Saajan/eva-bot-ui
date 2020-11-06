@@ -3,8 +3,6 @@ import classnames from "classnames";
 import Chart from "chart.js";
 import { Line, Bar } from "react-chartjs-2";
 import {
-  Button,
-  Popover,
   Card,
   CardHeader,
   CardBody,
@@ -16,10 +14,8 @@ import {
   Container,
   Row,
   Col,
-   Dropdown, DropdownMenu, DropdownToggle
+  Dropdown, DropdownItem,DropdownMenu, DropdownToggle
 } from "reactstrap";
-import { DateRangePicker } from 'react-date-range';
-import { format } from 'date-fns';
 import Layout from "layouts";
 import {
   chartOptions,
@@ -41,44 +37,39 @@ const Dashboard = () => {
     setActiveNav(index);
     setChartExample1Data(chartExample1Data === "data1" ? "data2" : "data1",);
   };
-
   const ranges = {
-    1 : "Today",
+    1: "Today",
     2: "Yesterday",
     3: "This week",
     4: "This month"
   };
-
-  console.log(metricData, 'metricData')
-  const range = metricData ? metricData.range : null;
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  console.log(range)
-  const [selectedDropdownVal, setDropDownVal] = useState(range);
+  const [selectedDropdownVal, setDropDownVal] = useState(1);
   const toggle = (id) => {
-    setDropDownVal(id)
-    setDropdownOpen(prevState => !prevState)
+    setDropdownOpen(prevState => !prevState);
+    setDropDownVal(id);
   };
-  console.log(selectedDropdownVal,'selectedDropdownVal')
+
   return (
     <React.Fragment>
       <div className="d-md-flex pb-4 pt-5 pt-md-7">
         <div className="container-fluid d-flex justify-content-between">
-          <div style={{cursor: "pointer",background: "#5e72e4",padding: "10px",color: "white",borderRadius: "10px",width:"150px",textAlign:"center"}}>
-            <Dropdown isOpen={dropdownOpen} toggle={() =>toggle(null)}>
-                <DropdownToggle
+          <div style={{ cursor: "pointer", background: "#5e72e4", padding: "10px", color: "white", borderRadius: "10px", width: "150px", textAlign: "center" }}>
+            <Dropdown isOpen={dropdownOpen} toggle={() => toggle(null)}>
+              <DropdownToggle
                 caret
-                style={{cursor: "pointer"}}
+                style={{ cursor: "pointer" }}
                 tag="span"
                 data-toggle="dropdown"
                 aria-expanded={dropdownOpen}
-                >
-                    { (dropdownOpen || !selectedDropdownVal) ? "Select range" : ranges[selectedDropdownVal]}
+              >
+                {(dropdownOpen || !selectedDropdownVal) ? "Select range" : ranges[selectedDropdownVal]}
               </DropdownToggle>
               <DropdownMenu >
-              <div style={{padding: "8px",textAlign: "center", cursor: "pointer"}} onClick={() =>toggle(1)}>Today</div>
-              <div style={{padding: "8px", textAlign: "center", cursor: "pointer"}} onClick={() =>toggle(2)}>Yesterday</div>
-              <div style={{padding: "8px", textAlign: "center", cursor: "pointer"}} onClick={() =>toggle(3)}>This week</div>
-              <div style={{padding: "8px", textAlign: "center", cursor: "pointer"}} onClick={() =>toggle(4)}>This month</div>
+                <DropdownItem onClick={() => toggle(1)}>Today</DropdownItem>
+                <DropdownItem onClick={() => toggle(2)}>Yesterday</DropdownItem>
+                <DropdownItem onClick={() => toggle(3)}>This week</DropdownItem>
+                <DropdownItem onClick={() => toggle(4)}>This month</DropdownItem>
               </DropdownMenu>
             </Dropdown>
           </div>
