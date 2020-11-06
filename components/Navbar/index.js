@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import { useRouter } from 'next/router'
 // reactstrap components
 import {
   DropdownMenu,
@@ -13,6 +14,7 @@ import {
 } from "reactstrap";
 
 const CommonNavbar = (props) => {
+  const { query } = useRouter()
   return (
     <>
       <Navbar className="navbar-top" expand="md" id="navbar-main">
@@ -34,8 +36,8 @@ const CommonNavbar = (props) => {
                   </span>
                   <Media className="ml-2 d-none d-lg-block">
                     <span className="mb-0 text-sm font-weight-bold">
-                      User
-                      </span>
+                      {query.name || "user"}
+                    </span>
                   </Media>
                 </Media>
               </DropdownToggle>

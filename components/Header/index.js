@@ -1,27 +1,30 @@
 import React from "react";
-
-// reactstrap components
+import { useRouter } from 'next/router'
 import { Card, CardBody, CardTitle, Container, Row, Col } from "reactstrap";
 const metricsData = require("../../data/metrics.json");
+import subDays from 'date-fns/subDays';
+import format from 'date-fns/format'
 
-const getQueryParams = () => {
-  let urlString = document.URL;
-  if(urlString && urlString.includes('?')){
-    //console.log(urlString.split('?'))
-    let paramString = urlString.split('?')[1]; 
-    let queryString = paramString.split('&'); 
-    const params = {
-      id: (queryString[0]).replace("id=", ""),
-      //date: (queryString[1]).replace("date=", ""),
-      selectedRange: queryString[1].replace("range=", "")
-    };
-    return params;
+const getQueryParams = (query) => {
+  const { id, range } = query;
+  
+  switch (range) {
+    case 'today':
+      retun 1;
+    case 'yesterday':
+      return 2;
+    case 'week':
+      return 3;
+    case 'month':
+      return 4;
+    default:
+      return 1;
   }
-
+  
   return {
-    id: 1,
-    selectedRange: 1
-  }
+    id, 
+    range
+  };
 }
 
 export const getMetricData = () => {
@@ -29,23 +32,24 @@ export const getMetricData = () => {
   const data = metricsData.find(item => (item.id == queryParams.id && item.range == queryParams.selectedRange));
   return data;
 }
-
+}
 
 const Header = () => {
-  const metricData = getMetricData();
-  
+  const { query } = useRouter();
+  const metricData = getQueryParams(query);
   const jsonData = [{
     cardTitle: "Attempts",
-    cardValue: metricData.attempts,
+    cardValue: metricData.data.attempts,
     cardIcon: "fa-chart-bar",
     insightValue: " 3.48%",
     insightStatus: true,
     insightDuration: "Since yesterday",
     //selectedDate: new Date(metricData.date)
     selectedRange: metricData.selectedRange
+
   }, {
     cardTitle: "Bitrate",
-    cardValue: metricData.bitrate,
+    cardValue: metricData.data.bitrate,
     cardIcon: "fa-bolt",
     insightValue: " 3.48%",
     insightStatus: false,
@@ -54,7 +58,7 @@ const Header = () => {
     selectedRange: metricData.selectedRange
   }, {
     cardTitle: "Framerate",
-    cardValue: metricData.framerate,
+    cardValue: metricData.data.framerate,
     cardIcon: "fa-chart-line",
     insightValue: " 3.48%",
     insightStatus: true,
@@ -63,7 +67,7 @@ const Header = () => {
     selectedRange: metricData.selectedRange
   }, {
     cardTitle: "Concurrent Plays",
-    cardValue: metricData.concurrentplay,
+    cardValue: metricData.data.concurrentplay,
     cardIcon: "fa-users",
     insightValue: " 3.48%",
     insightStatus: true,
@@ -72,16 +76,16 @@ const Header = () => {
     selectedRange: metricData.selectedRange
   }, {
     cardTitle: "Plays",
-    cardValue: metricData.plays,
+    cardValue: metricData.data.plays,
     cardIcon: "fa-play",
     insightValue: " 3.48%",
     insightStatus: true,
     insightDuration: "Since yesterday",
     //selectedDate: new Date(metricData.date)
-    selectedRange: metricData.selectedRange
+    selectedDate: metricData.date
   }, {
     cardTitle: "Unique Devices",
-    cardValue: metricData.uniquedevice,
+    cardValue: metricData.data.uniquedevice,
     cardIcon: "fa-mobile",
     insightValue: " 3.48%",
     insightStatus: true,
@@ -90,16 +94,17 @@ const Header = () => {
     selectedRange: metricData.selectedRange
   }, {
     cardTitle: "Rebuffering Ratio",
-    cardValue: metricData.rebuffering,
+    cardValue: metricData.data.rebuffering,
     cardIcon: "fa-percent",
     insightValue: " 3.48%",
     insightStatus: true,
     insightDuration: "Since yesterday",
     //selectedDate: new Date(metricData.date)
     selectedRange: metricData.selectedRange
+
   }, {
     cardTitle: "Ended Plays",
-    cardValue: metricData.endedplay,
+    cardValue: metricData.data.endedplay,
     cardIcon: "fa-chart-area",
     insightValue: " 3.48%",
     insightStatus: true,
@@ -115,7 +120,7 @@ const Header = () => {
             {/* Card stats */}
             <Row>
               {jsonData.map((data, i) => {
-                return (<Col lg="6" xl="3" key={i}  className="pb-3">
+                return (<Col lg="6" xl="3" key={i} className="pb-3">
                   <Card className="card-stats shadow mb-4 mb-xl-0">
                     <CardBody>
                       <Row>
