@@ -16,7 +16,7 @@ import {
   Container,
   Row,
   Col,
-   Dropdown, DropdownMenu, DropdownToggle
+  Dropdown, DropdownMenu, DropdownToggle
 } from "reactstrap";
 import Layout from "layouts";
 import {
@@ -26,33 +26,33 @@ import {
   chartExample2,
 } from "variables/charts.js";
 import Header from "components/Header";
-import {getMetricData} from "components/Header"
+import { getMetricData } from "components/Header"
 
 const getQueryParams = () => {
-    let urlString = document.URL;
-    if(urlString && urlString.includes('?')){
-      //console.log(urlString.split('?'))
-      let paramString = urlString.split('?')[1]; 
-      let queryString = paramString.split('&'); 
-      const params = {
-        id: (queryString[0]).replace("compare1=", ""),
-        //date: (queryString[1]).replace("date=", ""),
-        selectedRange: queryString[1].replace("compare2=", "")
-      };
-      return params;
-    }
-  
-    return {
-      compare1: "ios",
-      compare2: 'android'
-    }
+  let urlString = document.URL;
+  if (urlString && urlString.includes('?')) {
+    //console.log(urlString.split('?'))
+    let paramString = urlString.split('?')[1];
+    let queryString = paramString.split('&');
+    const params = {
+      id: (queryString[0]).replace("compare1=", ""),
+      //date: (queryString[1]).replace("date=", ""),
+      selectedRange: queryString[1].replace("compare2=", "")
+    };
+    return params;
   }
+
+  return {
+    compare1: "ios",
+    compare2: 'android'
+  }
+}
 
 const CompareDashboard = () => {
   const [activeNav, setActiveNav] = useState(1);
   const [chartExample1Data, setChartExample1Data] = useState("data1");
   const [popoverOpen, setPopoverOpen] = useState(false);
-  const metricData =  {
+  const metricData = {
     "id": 4,
     "date": "2020-11-25",
     "framerate": 3894,
@@ -64,7 +64,7 @@ const CompareDashboard = () => {
     "endedplay": 741,
     "attempts": 4005,
     "range": "1"
-};
+  };
 
   if (window.Chart) {
     parseOptions(Chart, chartOptions());
@@ -75,7 +75,7 @@ const CompareDashboard = () => {
   };
 
   const ranges = {
-    1 : "Today",
+    1: "Today",
     2: "Yesterday",
     3: "This week",
     4: "This month"
@@ -91,33 +91,33 @@ const CompareDashboard = () => {
     setDropdownOpen(prevState => !prevState)
   };
   const compareItems = getQueryParams();
-  console.log(selectedDropdownVal,'selectedDropdownVal')
+  console.log(selectedDropdownVal, 'selectedDropdownVal')
   return (
     <React.Fragment>
       <div className="d-md-flex pb-4 pt-5 pt-md-7">
         <div className="container-fluid d-flex justify-content-between">
-          <div style={{cursor: "pointer",background: "#5e72e4",padding: "10px",color: "white",borderRadius: "10px",width:"150px",height: "50px",textAlign:"center"}}>
-            <Dropdown isOpen={dropdownOpen} toggle={() =>toggle(null)}>
-                <DropdownToggle
+          <div style={{ cursor: "pointer", background: "#5e72e4", padding: "10px", color: "white", borderRadius: "10px", width: "150px", height: "50px", textAlign: "center" }}>
+            <Dropdown isOpen={dropdownOpen} toggle={() => toggle(null)}>
+              <DropdownToggle
                 caret
-                style={{cursor: "pointer"}}
+                style={{ cursor: "pointer" }}
                 tag="span"
                 data-toggle="dropdown"
                 aria-expanded={dropdownOpen}
-                >
-                    { (dropdownOpen || !selectedDropdownVal) ? "Select range" : ranges[selectedDropdownVal]}
+              >
+                {(dropdownOpen || !selectedDropdownVal) ? "Select range" : ranges[selectedDropdownVal]}
               </DropdownToggle>
               <DropdownMenu >
-              <div style={{padding: "8px",textAlign: "center", cursor: "pointer"}} onClick={() =>toggle(1)}>Today</div>
-              <div style={{padding: "8px", textAlign: "center", cursor: "pointer"}} onClick={() =>toggle(2)}>Yesterday</div>
-              <div style={{padding: "8px", textAlign: "center", cursor: "pointer"}} onClick={() =>toggle(3)}>This week</div>
-              <div style={{padding: "8px", textAlign: "center", cursor: "pointer"}} onClick={() =>toggle(4)}>This month</div>
+                <div style={{ padding: "8px", textAlign: "center", cursor: "pointer" }} onClick={() => toggle(1)}>Today</div>
+                <div style={{ padding: "8px", textAlign: "center", cursor: "pointer" }} onClick={() => toggle(2)}>Yesterday</div>
+                <div style={{ padding: "8px", textAlign: "center", cursor: "pointer" }} onClick={() => toggle(3)}>This week</div>
+                <div style={{ padding: "8px", textAlign: "center", cursor: "pointer" }} onClick={() => toggle(4)}>This month</div>
               </DropdownMenu>
             </Dropdown>
           </div>
-            <div className=".col-sm-12 .col-md-12 .offset-md-5">
-                <div style={{fontSize: "32px",fontWeight:"bold"}}>{"Comparing"+ " " + compareItems.compare1 + " and " + compareItems.compare2}</div>
-            </div>
+          <div className=".col-sm-12 .col-md-12 .offset-md-5">
+            <div style={{ fontSize: "32px", fontWeight: "bold" }}>{"Comparing" + " " + compareItems.compare1 + " and " + compareItems.compare2}</div>
+          </div>
           <div>
             <h2>CompareDashboard</h2>
           </div>
