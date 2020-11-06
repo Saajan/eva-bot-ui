@@ -15,6 +15,7 @@ import {
 
 const CommonNavbar = (props) => {
   const { query } = useRouter()
+  const {name = "USER"} = query; 
   return (
     <>
       <Navbar className="navbar-top" expand="md" id="navbar-main">
@@ -26,7 +27,7 @@ const CommonNavbar = (props) => {
           </Link>
           <Nav className="align-items-center d-none d-md-flex" navbar>
             <UncontrolledDropdown nav>
-              <DropdownToggle className="pr-0" nav>
+              <DropdownToggle className="pr-0"  style={{height:"50px",width:"200px"}}>
                 <Media className="align-items-center">
                   <span className="avatar avatar-sm rounded-circle">
                     <img
@@ -35,8 +36,8 @@ const CommonNavbar = (props) => {
                     />
                   </span>
                   <Media className="ml-2 d-none d-lg-block">
-                    <span className="mb-0 text-sm font-weight-bold">
-                      {query.name || "user"}
+                    <span className="mb-0 text-sm font-weight-bold" >
+                      <h3>{name.toUpperCase()} </h3>
                     </span>
                   </Media>
                 </Media>
