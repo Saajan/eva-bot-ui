@@ -14,7 +14,6 @@ import {
   Container,
   Row,
   Col,
-  Dropdown, DropdownItem,DropdownMenu, DropdownToggle
 } from "reactstrap";
 import Layout from "layouts";
 import {
@@ -37,12 +36,6 @@ const Dashboard = () => {
     setActiveNav(index);
     setChartExample1Data(chartExample1Data === "data1" ? "data2" : "data1",);
   };
-  const ranges = {
-    1: "Today",
-    2: "Yesterday",
-    3: "This week",
-    4: "This month"
-  };
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [selectedDropdownVal, setDropDownVal] = useState(1);
   const toggle = (id) => {
@@ -52,32 +45,6 @@ const Dashboard = () => {
 
   return (
     <React.Fragment>
-      <div className="d-md-flex pb-4 pt-5 pt-md-7">
-        <div className="container-fluid d-flex justify-content-between">
-          <div style={{ cursor: "pointer", background: "#5e72e4", padding: "10px", color: "white", borderRadius: "10px", width: "150px", textAlign: "center" }}>
-            <Dropdown isOpen={dropdownOpen} toggle={() => toggle(null)}>
-              <DropdownToggle
-                caret
-                style={{ cursor: "pointer" }}
-                tag="span"
-                data-toggle="dropdown"
-                aria-expanded={dropdownOpen}
-              >
-                {(dropdownOpen || !selectedDropdownVal) ? "Select range" : ranges[selectedDropdownVal]}
-              </DropdownToggle>
-              <DropdownMenu >
-                <DropdownItem onClick={() => toggle(1)}>Today</DropdownItem>
-                <DropdownItem onClick={() => toggle(2)}>Yesterday</DropdownItem>
-                <DropdownItem onClick={() => toggle(3)}>This week</DropdownItem>
-                <DropdownItem onClick={() => toggle(4)}>This month</DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
-          </div>
-          <div>
-            <h2>Dashboard</h2>
-          </div>
-        </div>
-      </div>
       <Header />
       {/* Page content */}
       <Container className="mt--7" fluid id="puppeteer">
