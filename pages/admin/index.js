@@ -18,9 +18,9 @@ import AuditTable from "components/Audit";
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('1');
-
+  
   const client = new ApolloClient({
-    uri: "http://localhost:8000/graphql",
+    uri: `${process.env.NEXT_PUBLIC_API_SERVER}/graphql`,
     cache: new InMemoryCache(),
   });
 
