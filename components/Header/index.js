@@ -52,8 +52,8 @@ const getCompareItems = () => {
     metrics = metrics.split(",");
     const metricsItems = metrics.map(item => (
       <div style={{margin:"5px"}}>
-        <Button color="secondary">{item.toUpperCase()}</Button>{' '}
-        </div>));
+        <Button color="secondary" style={{backgroundColor:"#5e72e4",color:"white"}}>{item.toUpperCase()}</Button>{' '}
+      </div>));
     return metricsItems;
   }
   return metrics;
