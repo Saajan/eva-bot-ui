@@ -52,8 +52,8 @@ const getCompareItems = () => {
     metrics = metrics.split(",");
     const metricsItems = metrics.map(item => (
       <div style={{margin:"5px"}}>
-        <Button color="secondary">{item.toUpperCase()}</Button>{' '}
-        </div>));
+        <Button color="secondary" style={{backgroundColor:"#5e72e4",color:"white"}}>{item.toUpperCase()}</Button>{' '}
+      </div>));
     return metricsItems;
   }
   return metrics;
@@ -76,8 +76,9 @@ const Header = () => {
     setDropDownVal(id)
     setDropdownOpen(prevState => !prevState)
   };
-  
 
+  const {pathname} = useRouter();
+  const isComparePage = pathname === '/compare';
   const jsonData = [{
     cardTitle: "Attempts",
     cardValue: metricData.data.attempts,
@@ -177,6 +178,7 @@ const Header = () => {
           </div>
         </div>
       </div>
+      {(!isComparePage) ? 
       <div className="header pb-8">
         <Container fluid>
           <div className="header-body">
@@ -218,6 +220,8 @@ const Header = () => {
           </div>
         </Container>
       </div>
+      : null
+}
     </React.Fragment>
   );
 };

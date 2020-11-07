@@ -23,6 +23,7 @@ import {
   chartExample2,
 } from "variables/charts.js";
 import Header from "components/Header";
+import ChatWindow from "components/ChatWindow";
 
 const Dashboard = () => {
   const [activeNav, setActiveNav] = useState(1);
@@ -291,6 +292,7 @@ const Dashboard = () => {
             </Card>
           </Col>
         </Row>
+        <ChatWindow/>     
       </Container>
     </React.Fragment>
   );

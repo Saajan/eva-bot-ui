@@ -12,6 +12,7 @@ import Header from "components/Header";
 
 import ApolloClient, { InMemoryCache } from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
+import ChatWindow from "components/ChatWindow";
 import UserTable from "components/Users";
 import AuditTable from "components/Audit";
 
@@ -116,6 +117,9 @@ const AdminDashboard = () => {
         </TabContent>
         </Container>
         </Jumbotron>
+      </div>
+      <div style={{visibility:"hidden"}}>
+        <ChatWindow/>
       </div>
       </React.Fragment>
     </ApolloProvider>

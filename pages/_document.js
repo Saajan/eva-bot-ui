@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import Document, { Head, Main, NextScript } from "next/document";
+import { UncontrolledCollapse, Button, CardBody, Card } from 'reactstrap';
 
 class MyDocument extends Document {
   render() {
@@ -25,7 +26,6 @@ class MyDocument extends Document {
           <div id="page-transition"></div>
           <Main />
           <NextScript />
-          <div id="webchat" role="main"></div>
           <script src="/js/webchat.js"></script>
         </body>
       </html>
