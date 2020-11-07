@@ -10,16 +10,19 @@ import BroadcastForm from "components/BroadcastForm";
 import BroadcastStatus from "components/BroadcastStatus";
 import Header from "components/Header";
 
-import ApolloClient from "apollo-boost";
+import ApolloClient, { InMemoryCache } from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 import ChatWindow from "components/ChatWindow";
+import UserTable from "components/Users";
+import AuditTable from "components/Audit";
 
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('1');
 
   const client = new ApolloClient({
-    uri: "http://localhost:8000/graphql"
+    uri: "http://localhost:8000/graphql",
+    cache: new InMemoryCache(),
   });
 
   // client.query({ 
@@ -61,6 +64,24 @@ const AdminDashboard = () => {
               Notifications Status
             </NavLink>
           </NavItem>
+          <NavItem>
+          <NavLink
+            style={tabStyle}
+            className={classnames({ active: activeTab === '3' })}
+            onClick={() => { toggle('3'); }}
+          >
+            Manager Users
+          </NavLink>
+        </NavItem>
+        <NavItem>
+        <NavLink
+          style={tabStyle}
+          className={classnames({ active: activeTab === '4' })}
+          onClick={() => { toggle('4'); }}
+        >
+            Logs
+          </NavLink>
+        </NavItem>
         </Nav>
         <TabContent activeTab={activeTab} style={{height:"100%",width:"100%"}}>
           <TabPane tabId="1" style={{backgroundColor:"#5e72e4 !important"}}>
@@ -76,6 +97,20 @@ const AdminDashboard = () => {
             <Row>
             <Card body>
                 <BroadcastStatus/>
+            </Card>
+            </Row>
+          </TabPane>
+          <TabPane tabId="3">
+            <Row>
+            <Card body>
+                <UserTable />
+            </Card>
+            </Row>
+          </TabPane>
+          <TabPane tabId="4">
+            <Row>
+            <Card body>
+                <AuditTable />
             </Card>
             </Row>
           </TabPane>

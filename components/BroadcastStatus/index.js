@@ -30,7 +30,7 @@ const BroadcastStatus = () => {
             "maintanence": "Maintanence"
         };
         const rows = list.map((item) => (
-            <tr>
+            <tr key={item.id}>
                 <th scope="row">{item.id}</th>
                 <td>{item.title}</td>
                 <td>{types[item.type]}</td>

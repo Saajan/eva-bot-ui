@@ -48,7 +48,7 @@ const BroadcastForm = () => {
         setDate(e.target.value);
     }
 
-    const addaddBroadcastMutation = gql`
+    const addBroadcastMutation = gql`
         mutation addBroadcast($message: NewBroadcast!) {
             addBroadcast(message: $message) {
             title,
@@ -67,7 +67,7 @@ const BroadcastForm = () => {
     return (
         <React.Fragment>
             <div>
-                <Mutation mutation={addaddBroadcastMutation}>
+                <Mutation mutation={addBroadcastMutation}>
                     {(addBroadcast, {loading, error}) => (
                     <Form>
                         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
