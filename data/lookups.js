@@ -4,3 +4,4 @@ export const statusMap = {
     '2' : 'Completed',
     '-1': 'Failed',
 }
+
