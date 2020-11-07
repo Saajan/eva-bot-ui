@@ -26,7 +26,6 @@ import {
   chartExample2,
 } from "variables/charts.js";
 import Header from "components/Header";
-import { getMetricData } from "components/Header"
 
 const CompareDashboard = () => {
   const [activeNav, setActiveNav] = useState(1);
@@ -71,6 +70,7 @@ const CompareDashboard = () => {
     setDropdownOpen(prevState => !prevState)
   };
   console.log(selectedDropdownVal, 'selectedDropdownVal')
+
   return (
     <React.Fragment>
       <Header />

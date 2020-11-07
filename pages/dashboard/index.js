@@ -27,7 +27,6 @@ import Header from "components/Header";
 const Dashboard = () => {
   const [activeNav, setActiveNav] = useState(1);
   const [chartExample1Data, setChartExample1Data] = useState("data1");
-  const [popoverOpen, setPopoverOpen] = useState(false);
 
   if (window.Chart) {
     parseOptions(Chart, chartOptions());
@@ -35,12 +34,6 @@ const Dashboard = () => {
   const toggleNav = (index) => {
     setActiveNav(index);
     setChartExample1Data(chartExample1Data === "data1" ? "data2" : "data1",);
-  };
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [selectedDropdownVal, setDropDownVal] = useState(1);
-  const toggle = (id) => {
-    setDropdownOpen(prevState => !prevState);
-    setDropDownVal(id);
   };
 
   return (

@@ -16,11 +16,17 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
             rel="stylesheet"
           />
+          <script
+            crossOrigin="anonymous"
+            src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"
+          ></script>
         </Head>
         <body>
           <div id="page-transition"></div>
           <Main />
           <NextScript />
+          <div id="webchat" role="main"></div>
+          <script src="/js/webchat.js"></script>
         </body>
       </html>
     );
