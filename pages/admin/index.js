@@ -12,6 +12,7 @@ import Header from "components/Header";
 
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
+import ChatWindow from "components/ChatWindow";
 
 
 const AdminDashboard = () => {
@@ -81,6 +82,9 @@ const AdminDashboard = () => {
         </TabContent>
         </Container>
         </Jumbotron>
+      </div>
+      <div style={{visibility:"hidden"}}>
+        <ChatWindow/>
       </div>
       </React.Fragment>
     </ApolloProvider>

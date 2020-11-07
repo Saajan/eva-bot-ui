@@ -26,6 +26,7 @@ import {
   chartExample2,
 } from "variables/charts.js";
 import Header from "components/Header";
+import ChatWindow from "components/ChatWindow";
 
 const CompareDashboard = () => {
   const [activeNav, setActiveNav] = useState(1);
@@ -63,13 +64,11 @@ const CompareDashboard = () => {
   console.log(metricData, 'metricData')
   const range = metricData ? metricData.range : null;
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  console.log(range)
   const [selectedDropdownVal, setDropDownVal] = useState(range);
   const toggle = (id) => {
     setDropDownVal(id)
     setDropdownOpen(prevState => !prevState)
   };
-  console.log(selectedDropdownVal, 'selectedDropdownVal')
 
   return (
     <React.Fragment>
@@ -326,6 +325,7 @@ const CompareDashboard = () => {
             </Card>
           </Col>
         </Row>
+        <ChatWindow/>
       </Container>
     </React.Fragment>
   );
