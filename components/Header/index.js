@@ -148,7 +148,7 @@ const Header = () => {
       <div className="d-md-flex pb-4 pt-5 pt-md-7">
         <div className="container-fluid d-flex justify-content-between align-tems-center" style={{height:"50px"}}>
           <div style={{cursor: "pointer",background: "#5e72e4",padding: "10px",color: "white",borderRadius: "10px",width:"150px",textAlign:"center"}}>
-            <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+            <Dropdown isOpen={dropdownOpen} toggle={() => toggle(null)}>
                 <DropdownToggle
                 caret
                 style={{cursor: "pointer"}}
