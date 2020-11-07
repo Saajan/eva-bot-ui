@@ -2,6 +2,7 @@ import React from "react";
 import { Table } from "reactstrap";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
+import { statusMap } from "data/lookups";
 
 const AuditQuery = gql`
   {
@@ -14,13 +15,6 @@ const AuditQuery = gql`
     }
   }
 `;
-
-const statusMap = {
-    0: 'Waiting',
-    1: 'Scheduled',
-    2: 'Completed',
-    3: 'Failed',
-}
 
 function AuditTable() {
   return (
