@@ -30,15 +30,21 @@ const AdminDashboard = () => {
     if(activeTab !== tab) setActiveTab(tab);
   }
 
+  const tabStyle = {
+      cursor: "pointer"
+  }
+
   return (
     <ApolloProvider client={client}>
       <React.Fragment>
         <div>
         <Jumbotron>
-          <Container style={{height:"100vh"}}>
+          <Container style={{height:"100vh"}} >
+          <h1>Notification Center</h1>
         <Nav tabs>
           <NavItem>
             <NavLink
+              style={tabStyle}
               className={classnames({ active: activeTab === '1' })}
               onClick={() => { toggle('1'); }}
             >
@@ -47,6 +53,7 @@ const AdminDashboard = () => {
           </NavItem>
           <NavItem>
             <NavLink
+              style={tabStyle}
               className={classnames({ active: activeTab === '2' })}
               onClick={() => { toggle('2'); }}
             >
@@ -55,7 +62,7 @@ const AdminDashboard = () => {
           </NavItem>
         </Nav>
         <TabContent activeTab={activeTab} style={{height:"100%",width:"100%"}}>
-          <TabPane tabId="1">
+          <TabPane tabId="1" style={{backgroundColor:"#5e72e4 !important"}}>
             <Row>
                 <Card body>
                   <CardTitle>Notification Message</CardTitle>

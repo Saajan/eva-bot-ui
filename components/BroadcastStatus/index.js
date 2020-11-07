@@ -23,11 +23,17 @@ const BroadcastStatus = () => {
     }, []);
 
     const renderEachMessage = (list) => {
+        const types = {
+            "general": "General",
+            "downtime": "Downtime",
+            "release": "Release",
+            "maintanence": "Maintanence"
+        };
         const rows = list.map((item) => (
             <tr>
                 <th scope="row">{item.id}</th>
                 <td>{item.title}</td>
-                <td>{item.type}</td>
+                <td>{types[item.type]}</td>
                 <td>{item.date}</td>
                 <td>{item.status}</td>
             </tr>

@@ -3,7 +3,7 @@ import {
     Dropdown, DropdownMenu, DropdownToggle, Form, FormGroup, Input,
     Button, Label
 } from 'reactstrap';
-
+import ConfirmationModal from "components/Confirmation";
 import { Mutation } from "react-apollo";
 import gql from  "graphql-tag"
 import moment from 'moment';
@@ -17,7 +17,6 @@ const BroadcastForm = () => {
 
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [selectedDropdownVal, setDropDownVal] = useState(null);
-    console.log(dropdownOpen, selectedDropdownVal)
 
     const types = {
         "general": "General",
@@ -27,9 +26,14 @@ const BroadcastForm = () => {
     }
     
     const toggle = (key) => {
-        console.log(key, types[key])
         setDropDownVal(key)
         setDropdownOpen(prevState => !prevState)
+    };
+
+    const [modal, setModal] = useState(false);
+    const toggleModal = () => {
+        console.log('here')
+        setModal(!modal)
     };
 
     
@@ -41,8 +45,6 @@ const BroadcastForm = () => {
     }
 
     const onDateChange = (e) => {
-        console.log(e.target.value)
-        console.log(moment(e.target.value).format('DD-MM-YYYY HH:mm:ss'))
         setDate(e.target.value);
     }
 
@@ -59,6 +61,7 @@ const BroadcastForm = () => {
         setName("")
         setMessage("")
         setDate("")
+        toggleModal()
     }
 
     return (
@@ -67,17 +70,17 @@ const BroadcastForm = () => {
                 <Mutation mutation={addaddBroadcastMutation}>
                     {(addBroadcast, {loading, error}) => (
                     <Form>
-                        <FormGroup>
+                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                             <Label for="Title">Title</Label>
-                            <Input type="text" value={name} onChange={onChange} placeholder="What is the subject?"/>
-                        </FormGroup>
+                            <Input type="text" value={name} onChange={onChange} placeholder="What is the subject? This field is required"/>
+                           </FormGroup>
                         <FormGroup>
                             <Label for="Description">Description</Label>
                             <Input type="text" value={message} onChange={onDescChange} placeholder="What is the message?" />
                         </FormGroup>
                         <FormGroup>
                             <Label for="Type">Type of Broadcast </Label>
-                            <div className="" style={{ cursor: "pointer", background: "#ababba", padding: "10px", color: "white", borderRadius: "10px", width: "250px", textAlign: "center" }}>
+                            <div className="" style={{ cursor: "pointer", background: "#5e72e4", padding: "10px", color: "white", borderRadius: "10px", width: "250px", textAlign: "center" }}>
                                 <Dropdown isOpen={dropdownOpen} toggle={() => toggle(null)}>
                                     <DropdownToggle
                                         caret
@@ -110,14 +113,14 @@ const BroadcastForm = () => {
                         </FormGroup>
                         <div style={{cente: 'center'}}>
                         <Button 
-                        style={{color: 'white', background: '#ababba', textAlign: 'center', left: '40%'}}                    
+                        style={{color: 'white', background: '#5e72e4', textAlign: 'center', left: '40%'}}                    
                             onClick={ evt => {
                                 addBroadcast({
                                     variables: {
                                         message: {
                                             title: name,
                                             description: message,
-                                            type: types[selectedDropdownVal],
+                                            type: selectedDropdownVal,
                                             date: moment(date).format('MMMM Do YYYY, h:mm:ss')
                                         }
                                     }
@@ -133,6 +136,9 @@ const BroadcastForm = () => {
                     
                     )}
                 </Mutation>
+                <ConfirmationModal 
+                            toggleModal={toggleModal}
+                            setModal={modal} />
             </div>
 
         </React.Fragment >
