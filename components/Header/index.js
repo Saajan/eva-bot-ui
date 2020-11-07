@@ -5,9 +5,10 @@ import { Card, CardBody, CardTitle, Container, Row, Col,
 const metricsData = require("../../data/metrics.json");
 import subDays from 'date-fns/subDays';
 import format from 'date-fns/format'
+import { Button } from 'reactstrap';
 
 const getQueryParams = (query) => {
-  const { range } = query;
+  const { range ="today"} = query;
   let date = '';
   let toggle_id = 1;
   switch (range) {
@@ -35,12 +36,27 @@ const getQueryParams = (query) => {
       toggle_id = 1;
       break;
   }
-  const obj = metricsData.find(o => o.date === String(date));
+  const obj = metricsData.find(o => o.range === range);
+  
   return {
     date: date,
     data: obj,
-    range: toggle_id,
+    range: toggle_id
   };
+}
+
+const getCompareItems = () => {
+  const { query } = useRouter();
+  let {metrics =""} = query;
+  if(metrics){
+    metrics = metrics.split(",");
+    const metricsItems = metrics.map(item => (
+      <div style={{margin:"5px"}}>
+        <Button color="secondary">{item.toUpperCase()}</Button>{' '}
+        </div>));
+    return metricsItems;
+  }
+  return metrics;
 }
 
 const ranges = {
@@ -57,12 +73,10 @@ const Header = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [selectedDropdownVal, setDropDownVal] = useState(metricData.range);
   const toggle = (id) => {
-    console.log(id)
     setDropDownVal(id)
-    console.log(selectedDropdownVal)
     setDropdownOpen(prevState => !prevState)
   };
-  console.log(selectedDropdownVal)
+  
 
   const jsonData = [{
     cardTitle: "Attempts",
@@ -132,9 +146,9 @@ const Header = () => {
   return (
     <React.Fragment>
       <div className="d-md-flex pb-4 pt-5 pt-md-7">
-        <div className="container-fluid d-flex justify-content-between">
+        <div className="container-fluid d-flex justify-content-between align-tems-center" style={{height:"50px"}}>
           <div style={{cursor: "pointer",background: "#5e72e4",padding: "10px",color: "white",borderRadius: "10px",width:"150px",textAlign:"center"}}>
-            <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+            <Dropdown isOpen={dropdownOpen} toggle={() => toggle(null)}>
                 <DropdownToggle
                 caret
                 style={{cursor: "pointer"}}
@@ -152,6 +166,12 @@ const Header = () => {
               </DropdownMenu>
             </Dropdown>
           </div>
+          {
+            getCompareItems() ? 
+            <div className="d-flex justify-content-between"><h1>Comparing </h1>{getCompareItems()}</div>
+            : null
+          }
+          
           <div>
             <h2>Dashboard</h2>
           </div>

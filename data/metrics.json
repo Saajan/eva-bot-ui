@@ -8,7 +8,8 @@
     "plays": 8891,
     "uniquedevice": 629,
     "endedplay": 2808,
-    "attempts": 1304
+    "attempts": 1304,
+    "range": "today"
 }, {
     "id": 2,
     "date": "2020-11-27",
@@ -19,7 +20,8 @@
     "plays": 9221,
     "uniquedevice": 2842,
     "endedplay": 575,
-    "attempts": 2034
+    "attempts": 2034,
+    "range": "yesterday"
 }, {
     "id": 3,
     "date": "2020-11-26",
@@ -30,7 +32,8 @@
     "plays": 6994,
     "uniquedevice": 924,
     "endedplay": 3814,
-    "attempts": 478
+    "attempts": 478,
+    "range": "week"
 }, {
     "id": 4,
     "date": "2020-11-25",
@@ -41,7 +44,8 @@
     "plays": 2522,
     "uniquedevice": 1877,
     "endedplay": 741,
-    "attempts": 4005
+    "attempts": 4005,
+    "range": "month"
 }, {
     "id": 5,
     "date": "2020-11-24",
@@ -52,7 +56,8 @@
     "plays": 4826,
     "uniquedevice": 1528,
     "endedplay": 1898,
-    "attempts": 307
+    "attempts": 307,
+    "range": "today"
 }, {
     "id": 6,
     "date": "2020-11-23",
@@ -63,7 +68,8 @@
     "plays": 4291,
     "uniquedevice": 2355,
     "endedplay": 2248,
-    "attempts": 379
+    "attempts": 379,
+    "range": "today"
 }, {
     "id": 7,
     "date": "2020-11-22",
@@ -74,7 +80,8 @@
     "plays": 9983,
     "uniquedevice": 2344,
     "endedplay": 1247,
-    "attempts": 362
+    "attempts": 362,
+    "range": "today"
 }, {
     "id": 8,
     "date": "2020-11-21",
@@ -85,7 +92,8 @@
     "plays": 2779,
     "uniquedevice": 2072,
     "endedplay": 1480,
-    "attempts": 3426
+    "attempts": 3426,
+    "range": "today"
 }, {
     "id": 9,
     "date": "2020-11-20",
@@ -96,7 +104,8 @@
     "plays": 8733,
     "uniquedevice": 1058,
     "endedplay": 2001,
-    "attempts": 3495
+    "attempts": 3495,
+    "range": "today"
 }, {
     "id": 10,
     "date": "2020-11-19",
@@ -107,7 +116,8 @@
     "plays": 4182,
     "uniquedevice": 1955,
     "endedplay": 3099,
-    "attempts": 3655
+    "attempts": 3655,
+    "range": "today"
 }, {
     "id": 11,
     "date": "2020-11-18",
@@ -118,7 +128,8 @@
     "plays": 4730,
     "uniquedevice": 2407,
     "endedplay": 4628,
-    "attempts": 3647
+    "attempts": 3647,
+    "range": "today"
 }, {
     "id": 12,
     "date": "2020-11-17",
@@ -129,7 +140,8 @@
     "plays": 4689,
     "uniquedevice": 2159,
     "endedplay": 2386,
-    "attempts": 974
+    "attempts": 974,
+    "range": "today"
 }, {
     "id": 13,
     "date": "2020-11-16",
@@ -140,7 +152,8 @@
     "plays": 8524,
     "uniquedevice": 2198,
     "endedplay": 3626,
-    "attempts": 2260
+    "attempts": 2260,
+    "range": "today"
 }, {
     "id": 14,
     "date": "2020-11-15",
@@ -151,7 +164,8 @@
     "plays": 7530,
     "uniquedevice": 2225,
     "endedplay": 3361,
-    "attempts": 1912
+    "attempts": 1912,
+    "range": "today"
 }, {
     "id": 15,
     "date": "2020-11-14",
@@ -162,7 +176,8 @@
     "plays": 5083,
     "uniquedevice": 1813,
     "endedplay": 1414,
-    "attempts": 3541
+    "attempts": 3541,
+    "range": "today"
 }, {
     "id": 16,
     "date": "2020-11-13",
@@ -173,7 +188,8 @@
     "plays": 7481,
     "uniquedevice": 934,
     "endedplay": 1530,
-    "attempts": 3381
+    "attempts": 3381,
+    "range": "today"
 }, {
     "id": 17,
     "date": "2020-11-12",
@@ -184,7 +200,8 @@
     "plays": 5541,
     "uniquedevice": 1869,
     "endedplay": 2641,
-    "attempts": 2389
+    "attempts": 2389,
+    "range": "today"
 }, {
     "id": 18,
     "date": "2020-11-11",
@@ -195,7 +212,8 @@
     "plays": 1226,
     "uniquedevice": 1872,
     "endedplay": 4665,
-    "attempts": 4388
+    "attempts": 4388,
+    "range": "today"
 }, {
     "id": 19,
     "date": "2020-11-10",
@@ -206,7 +224,8 @@
     "plays": 9690,
     "uniquedevice": 771,
     "endedplay": 2269,
-    "attempts": 2148
+    "attempts": 2148,
+    "range": "today"
 }, {
     "id": 20,
     "date": "2020-11-09",
@@ -217,7 +236,8 @@
     "plays": 4413,
     "uniquedevice": 2562,
     "endedplay": 1410,
-    "attempts": 4115
+    "attempts": 4115,
+    "range": "today"
 }, {
     "id": 21,
     "date": "2020-11-08",
@@ -228,7 +248,8 @@
     "plays": 7602,
     "uniquedevice": 2229,
     "endedplay": 4739,
-    "attempts": 4757
+    "attempts": 4757,
+    "range": "today"
 }, {
     "id": 22,
     "date": "2020-11-07",
@@ -239,7 +260,8 @@
     "plays": 3445,
     "uniquedevice": 869,
     "endedplay": 2726,
-    "attempts": 1703
+    "attempts": 1703,
+    "range": "today"
 }, {
     "id": 23,
     "date": "2020-11-06",
@@ -250,7 +272,8 @@
     "plays": 2892,
     "uniquedevice": 1125,
     "endedplay": 3462,
-    "attempts": 4762
+    "attempts": 4762,
+    "range": "today"
 }, {
     "id": 24,
     "date": "2020-11-05",
@@ -261,7 +284,8 @@
     "plays": 5642,
     "uniquedevice": 2924,
     "endedplay": 3135,
-    "attempts": 1937
+    "attempts": 1937,
+    "range": "today"
 }, {
     "id": 25,
     "date": "2020-11-04",
@@ -272,7 +296,8 @@
     "plays": 8514,
     "uniquedevice": 1250,
     "endedplay": 2128,
-    "attempts": 2568
+    "attempts": 2568,
+    "range": "today"
 }, {
     "id": 26,
     "date": "2020-11-03",
@@ -283,7 +308,8 @@
     "plays": 3949,
     "uniquedevice": 756,
     "endedplay": 1026,
-    "attempts": 1522
+    "attempts": 1522,
+    "range": "today"
 }, {
     "id": 27,
     "date": "2020-11-02",
@@ -294,7 +320,8 @@
     "plays": 7162,
     "uniquedevice": 2756,
     "endedplay": 2329,
-    "attempts": 4590
+    "attempts": 4590,
+    "range": "today"
 }, {
     "id": 28,
     "date": "2020-11-01",
@@ -305,7 +332,8 @@
     "plays": 9650,
     "uniquedevice": 872,
     "endedplay": 908,
-    "attempts": 1165
+    "attempts": 1165,
+    "range": "today"
 }, {
     "id": 29,
     "date": "2020-10-31",
@@ -316,7 +344,8 @@
     "plays": 6989,
     "uniquedevice": 1836,
     "endedplay": 4332,
-    "attempts": 1610
+    "attempts": 1610,
+    "range": "today"
 }, {
     "id": 30,
     "date": "2020-10-29",
@@ -327,7 +356,8 @@
     "plays": 6186,
     "uniquedevice": 2400,
     "endedplay": 2632,
-    "attempts": 1532
+    "attempts": 1532,
+    "range": "today"
 }, {
     "id": 31,
     "date": "2020-10-28",
@@ -338,7 +368,8 @@
     "plays": 6895,
     "uniquedevice": 2318,
     "endedplay": 1093,
-    "attempts": 4706
+    "attempts": 4706,
+    "range": "today"
 }, {
     "id": 32,
     "date": "2020-10-27",
@@ -349,7 +380,8 @@
     "plays": 1959,
     "uniquedevice": 901,
     "endedplay": 1316,
-    "attempts": 2445
+    "attempts": 2445,
+    "range": "today"
 }, {
     "id": 33,
     "date": "2020-10-26",
@@ -360,7 +392,8 @@
     "plays": 8306,
     "uniquedevice": 1423,
     "endedplay": 2787,
-    "attempts": 4717
+    "attempts": 4717,
+    "range": "today"
 }, {
     "id": 34,
     "date": "2020-10-25",
@@ -371,7 +404,8 @@
     "plays": 7671,
     "uniquedevice": 761,
     "endedplay": 939,
-    "attempts": 3501
+    "attempts": 3501,
+    "range": "today"
 }, {
     "id": 35,
     "date": "2020-10-24",
@@ -382,7 +416,8 @@
     "plays": 9412,
     "uniquedevice": 2916,
     "endedplay": 1034,
-    "attempts": 1361
+    "attempts": 1361,
+    "range": "today"
 }, {
     "id": 36,
     "date": "2020-10-23",
@@ -393,7 +428,8 @@
     "plays": 4039,
     "uniquedevice": 1272,
     "endedplay": 934,
-    "attempts": 1658
+    "attempts": 1658,
+    "range": "today"
 }, {
     "id": 37,
     "date": "2020-10-22",
@@ -404,7 +440,8 @@
     "plays": 3793,
     "uniquedevice": 1830,
     "endedplay": 548,
-    "attempts": 4179
+    "attempts": 4179,
+    "range": "today"
 }, {
     "id": 38,
     "date": "2020-10-21",
@@ -415,7 +452,8 @@
     "plays": 8122,
     "uniquedevice": 2024,
     "endedplay": 4350,
-    "attempts": 2935
+    "attempts": 2935,
+    "range": "today"
 }, {
     "id": 39,
     "date": "2020-10-20",
@@ -426,7 +464,8 @@
     "plays": 6786,
     "uniquedevice": 2692,
     "endedplay": 2330,
-    "attempts": 4443
+    "attempts": 4443,
+    "range": "today"
 }, {
     "id": 40,
     "date": "2020-10-19",
@@ -437,7 +476,8 @@
     "plays": 1148,
     "uniquedevice": 2436,
     "endedplay": 3996,
-    "attempts": 2066
+    "attempts": 2066,
+    "range": "today"
 }, {
     "id": 41,
     "date": "2020-10-18",
@@ -448,7 +488,8 @@
     "plays": 4761,
     "uniquedevice": 2709,
     "endedplay": 3410,
-    "attempts": 2308
+    "attempts": 2308,
+    "range": "today"
 }, {
     "id": 42,
     "date": "2020-10-17",
@@ -459,7 +500,8 @@
     "plays": 3159,
     "uniquedevice": 1105,
     "endedplay": 4704,
-    "attempts": 2592
+    "attempts": 2592,
+    "range": "today"
 }, {
     "id": 43,
     "date": "2020-10-16",
@@ -470,7 +512,8 @@
     "plays": 7280,
     "uniquedevice": 1312,
     "endedplay": 1313,
-    "attempts": 3853
+    "attempts": 3853,
+    "range": "today"
 }, {
     "id": 44,
     "date": "2020-10-15",
@@ -481,7 +524,8 @@
     "plays": 3694,
     "uniquedevice": 2460,
     "endedplay": 2128,
-    "attempts": 641
+    "attempts": 641,
+    "range": "today"
 }, {
     "id": 45,
     "date": "2020-10-14",
@@ -492,7 +536,8 @@
     "plays": 6434,
     "uniquedevice": 2764,
     "endedplay": 2402,
-    "attempts": 2408
+    "attempts": 2408,
+    "range": "today"
 }, {
     "id": 46,
     "date": "2020-10-13",
@@ -503,7 +548,8 @@
     "plays": 2291,
     "uniquedevice": 1907,
     "endedplay": 1103,
-    "attempts": 4760
+    "attempts": 4760,
+    "range": "today"
 }, {
     "id": 47,
     "date": "2020-10-12",
@@ -514,7 +560,8 @@
     "plays": 3836,
     "uniquedevice": 2580,
     "endedplay": 4447,
-    "attempts": 547
+    "attempts": 547,
+    "range": "today"
 }, {
     "id": 48,
     "date": "2020-10-11",
@@ -525,7 +572,8 @@
     "plays": 7858,
     "uniquedevice": 1707,
     "endedplay": 1991,
-    "attempts": 3175
+    "attempts": 3175,
+    "range": "today"
 }, {
     "id": 49,
     "date": "2020-10-10",
@@ -536,7 +584,8 @@
     "plays": 7998,
     "uniquedevice": 1623,
     "endedplay": 2106,
-    "attempts": 2799
+    "attempts": 2799,
+    "range": "today"
 }, {
     "id": 50,
     "date": "2020-10-09",
@@ -547,7 +596,8 @@
     "plays": 4879,
     "uniquedevice": 700,
     "endedplay": 1260,
-    "attempts": 1334
+    "attempts": 1334,
+    "range": "today"
 }, {
     "id": 51,
     "date": "2020-10-08",
@@ -558,7 +608,8 @@
     "plays": 3862,
     "uniquedevice": 1681,
     "endedplay": 4413,
-    "attempts": 1034
+    "attempts": 1034,
+    "range": "today"
 }, {
     "id": 52,
     "date": "2020-10-07",
@@ -569,7 +620,8 @@
     "plays": 7303,
     "uniquedevice": 841,
     "endedplay": 2159,
-    "attempts": 2780
+    "attempts": 2780,
+    "range": "today"
 }, {
     "id": 53,
     "date": "2020-10-06",
@@ -580,7 +632,8 @@
     "plays": 7412,
     "uniquedevice": 1576,
     "endedplay": 4178,
-    "attempts": 3593
+    "attempts": 3593,
+    "range": "today"
 }, {
     "id": 54,
     "date": "2020-10-05",
@@ -591,7 +644,8 @@
     "plays": 3547,
     "uniquedevice": 1118,
     "endedplay": 3553,
-    "attempts": 3186
+    "attempts": 3186,
+    "range": "today"
 }, {
     "id": 55,
     "date": "2020-10-04",
@@ -602,7 +656,8 @@
     "plays": 2862,
     "uniquedevice": 2055,
     "endedplay": 3949,
-    "attempts": 1396
+    "attempts": 1396,
+    "range": "today"
 }, {
     "id": 56,
     "date": "2020-10-03",
@@ -613,7 +668,8 @@
     "plays": 1045,
     "uniquedevice": 1005,
     "endedplay": 2456,
-    "attempts": 4619
+    "attempts": 4619,
+    "range": "today"
 }, {
     "id": 57,
     "date": "2020-10-02",
@@ -624,7 +680,8 @@
     "plays": 1944,
     "uniquedevice": 1000,
     "endedplay": 660,
-    "attempts": 2719
+    "attempts": 2719,
+    "range": "today"
 }, {
     "id": 58,
     "date": "2020-10-01",
@@ -635,7 +692,8 @@
     "plays": 9586,
     "uniquedevice": 1528,
     "endedplay": 1676,
-    "attempts": 4658
+    "attempts": 4658,
+    "range": "today"
 }, {
     "id": 59,
     "date": "2020-09-30",
@@ -646,7 +704,8 @@
     "plays": 8800,
     "uniquedevice": 1720,
     "endedplay": 2284,
-    "attempts": 2380
+    "attempts": 2380,
+    "range": "today"
 }, {
     "id": 60,
     "date": "2020-09-29",
@@ -657,7 +716,8 @@
     "plays": 5469,
     "uniquedevice": 2161,
     "endedplay": 1523,
-    "attempts": 2642
+    "attempts": 2642,
+    "range": "today"
 }, {
     "id": 61,
     "date": "2020-09-28",
@@ -668,7 +728,8 @@
     "plays": 5894,
     "uniquedevice": 2401,
     "endedplay": 2731,
-    "attempts": 1052
+    "attempts": 1052,
+    "range": "today"
 }, {
     "id": 62,
     "date": "2020-09-27",
@@ -679,7 +740,8 @@
     "plays": 2738,
     "uniquedevice": 1023,
     "endedplay": 2509,
-    "attempts": 3156
+    "attempts": 3156,
+    "range": "today"
 }, {
     "id": 63,
     "date": "2020-09-26",
@@ -690,7 +752,8 @@
     "plays": 7856,
     "uniquedevice": 817,
     "endedplay": 2740,
-    "attempts": 2204
+    "attempts": 2204,
+    "range": "today"
 }, {
     "id": 64,
     "date": "2020-09-25",
@@ -701,7 +764,8 @@
     "plays": 3983,
     "uniquedevice": 595,
     "endedplay": 4349,
-    "attempts": 4989
+    "attempts": 4989,
+    "range": "today"
 }, {
     "id": 65,
     "date": "2020-09-24",
@@ -712,7 +776,8 @@
     "plays": 4109,
     "uniquedevice": 2485,
     "endedplay": 2715,
-    "attempts": 4195
+    "attempts": 4195,
+    "range": "today"
 }, {
     "id": 66,
     "date": "2020-09-23",
@@ -723,7 +788,8 @@
     "plays": 8753,
     "uniquedevice": 959,
     "endedplay": 2201,
-    "attempts": 1928
+    "attempts": 1928,
+    "range": "today"
 }, {
     "id": 67,
     "date": "2020-09-22",
@@ -734,7 +800,8 @@
     "plays": 6334,
     "uniquedevice": 2170,
     "endedplay": 4985,
-    "attempts": 4676
+    "attempts": 4676,
+    "range": "today"
 }, {
     "id": 68,
     "date": "2020-09-21",
@@ -745,7 +812,8 @@
     "plays": 7431,
     "uniquedevice": 1544,
     "endedplay": 3456,
-    "attempts": 3019
+    "attempts": 3019,
+    "range": "today"
 }, {
     "id": 69,
     "date": "2020-09-20",
@@ -756,7 +824,8 @@
     "plays": 1575,
     "uniquedevice": 1897,
     "endedplay": 4677,
-    "attempts": 1118
+    "attempts": 1118,
+    "range": "today"
 }, {
     "id": 70,
     "date": "2020-09-19",
@@ -767,7 +836,8 @@
     "plays": 4452,
     "uniquedevice": 1415,
     "endedplay": 610,
-    "attempts": 1730
+    "attempts": 1730,
+    "range": "today"
 }, {
     "id": 71,
     "date": "2020-09-18",
@@ -778,7 +848,8 @@
     "plays": 4824,
     "uniquedevice": 1177,
     "endedplay": 647,
-    "attempts": 1472
+    "attempts": 1472,
+    "range": "today"
 }, {
     "id": 72,
     "date": "2020-09-17",
@@ -789,7 +860,8 @@
     "plays": 2146,
     "uniquedevice": 2875,
     "endedplay": 3002,
-    "attempts": 4941
+    "attempts": 4941,
+    "range": "today"
 }, {
     "id": 73,
     "date": "2020-09-16",
@@ -800,7 +872,8 @@
     "plays": 7013,
     "uniquedevice": 771,
     "endedplay": 4620,
-    "attempts": 2446
+    "attempts": 2446,
+    "range": "today"
 }, {
     "id": 74,
     "date": "2020-09-15",
@@ -811,7 +884,8 @@
     "plays": 2722,
     "uniquedevice": 2073,
     "endedplay": 950,
-    "attempts": 2198
+    "attempts": 2198,
+    "range": "today"
 }, {
     "id": 75,
     "date": "2020-09-14",
@@ -822,7 +896,8 @@
     "plays": 7135,
     "uniquedevice": 2136,
     "endedplay": 1287,
-    "attempts": 3397
+    "attempts": 3397,
+    "range": "today"
 }, {
     "id": 76,
     "date": "2020-09-13",
@@ -833,7 +908,8 @@
     "plays": 3722,
     "uniquedevice": 2967,
     "endedplay": 4178,
-    "attempts": 1739
+    "attempts": 1739,
+    "range": "today"
 }, {
     "id": 77,
     "date": "2020-09-12",
@@ -844,7 +920,8 @@
     "plays": 8963,
     "uniquedevice": 1838,
     "endedplay": 2190,
-    "attempts": 1101
+    "attempts": 1101,
+    "range": "today"
 }, {
     "id": 78,
     "date": "2020-09-11",
@@ -855,7 +932,8 @@
     "plays": 3907,
     "uniquedevice": 518,
     "endedplay": 4630,
-    "attempts": 4622
+    "attempts": 4622,
+    "range": "today"
 }, {
     "id": 79,
     "date": "2020-09-10",
@@ -866,7 +944,8 @@
     "plays": 4080,
     "uniquedevice": 2145,
     "endedplay": 3477,
-    "attempts": 301
+    "attempts": 301,
+    "range": "today"
 }, {
     "id": 80,
     "date": "2020-09-09",
@@ -877,7 +956,8 @@
     "plays": 2356,
     "uniquedevice": 1687,
     "endedplay": 2142,
-    "attempts": 3336
+    "attempts": 3336,
+    "range": "today"
 }, {
     "id": 81,
     "date": "2020-09-08",
@@ -888,7 +968,8 @@
     "plays": 1974,
     "uniquedevice": 1814,
     "endedplay": 1143,
-    "attempts": 3253
+    "attempts": 3253,
+    "range": "today"
 }, {
     "id": 82,
     "date": "2020-09-07",
@@ -899,7 +980,8 @@
     "plays": 1341,
     "uniquedevice": 2070,
     "endedplay": 1094,
-    "attempts": 3195
+    "attempts": 3195,
+    "range": "today"
 }, {
     "id": 83,
     "date": "2020-09-06",
@@ -910,7 +992,8 @@
     "plays": 2884,
     "uniquedevice": 2602,
     "endedplay": 3182,
-    "attempts": 2226
+    "attempts": 2226,
+    "range": "today"
 }, {
     "id": 84,
     "date": "2020-09-05",
@@ -921,7 +1004,8 @@
     "plays": 1810,
     "uniquedevice": 2428,
     "endedplay": 2633,
-    "attempts": 2758
+    "attempts": 2758,
+    "range": "today"
 }, {
     "id": 85,
     "date": "2020-09-04",
@@ -932,7 +1016,8 @@
     "plays": 4126,
     "uniquedevice": 2354,
     "endedplay": 2822,
-    "attempts": 3478
+    "attempts": 3478,
+    "range": "today"
 }, {
     "id": 86,
     "date": "2020-09-03",
@@ -943,7 +1028,8 @@
     "plays": 1933,
     "uniquedevice": 1638,
     "endedplay": 1936,
-    "attempts": 1784
+    "attempts": 1784,
+    "range": "today"
 }, {
     "id": 87,
     "date": "2020-09-02",
@@ -954,7 +1040,8 @@
     "plays": 5961,
     "uniquedevice": 1998,
     "endedplay": 3115,
-    "attempts": 3912
+    "attempts": 3912,
+    "range": "today"
 }, {
     "id": 88,
     "date": "2020-09-01",
@@ -965,5 +1052,6 @@
     "plays": 2371,
     "uniquedevice": 2110,
     "endedplay": 2787,
-    "attempts": 1582
+    "attempts": 1582,
+    "range": "today"
 }]

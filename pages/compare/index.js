@@ -53,6 +53,24 @@ const CompareDashboard = () => {
     setChartExample1Data(chartExample1Data === "data1" ? "data2" : "data1",);
   };
 
+  const ranges = {
+    1: "Today",
+    2: "Yesterday",
+    3: "This week",
+    4: "This month"
+  };
+
+  console.log(metricData, 'metricData')
+  const range = metricData ? metricData.range : null;
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  console.log(range)
+  const [selectedDropdownVal, setDropDownVal] = useState(range);
+  const toggle = (id) => {
+    setDropDownVal(id)
+    setDropdownOpen(prevState => !prevState)
+  };
+  console.log(selectedDropdownVal, 'selectedDropdownVal')
+
   return (
     <React.Fragment>
       <Header />
