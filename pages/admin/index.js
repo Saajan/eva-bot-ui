@@ -44,7 +44,7 @@ const AdminDashboard = () => {
         <div>
         <Jumbotron>
           <Container style={{height:"100vh"}} >
-          <h1>Notification Center</h1>
+          <h1>Admin Panel</h1>
         <Nav tabs>
           <NavItem>
             <NavLink
@@ -52,7 +52,7 @@ const AdminDashboard = () => {
               className={classnames({ active: activeTab === '1' })}
               onClick={() => { toggle('1'); }}
             >
-              Create Notification
+              Create Notifications
             </NavLink>
           </NavItem>
           <NavItem>
@@ -87,8 +87,7 @@ const AdminDashboard = () => {
           <TabPane tabId="1" style={{backgroundColor:"#5e72e4 !important"}}>
             <Row>
                 <Card body>
-                  <CardTitle>Notification Message</CardTitle>
-                  <CardText>Send message to all the customers</CardText>
+                  <CardTitle>Schedule and send messsages to all users</CardTitle>
                   <BroadcastForm />
                 </Card>
             </Row>
