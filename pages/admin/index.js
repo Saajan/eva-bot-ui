@@ -37,7 +37,7 @@ const AdminDashboard = () => {
     <ApolloProvider client={client}>
       <React.Fragment>
         <div>
-        <Jumbotron>
+        <Jumbotron style={{"backgroundColor": "white" }}>
           <Container style={{height:"100vh"}} >
           <h1>Admin Panel</h1>
         <Nav tabs>
