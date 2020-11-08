@@ -8,7 +8,6 @@ const ConfirmationModal = (props) => {
     toggleModal
   } = props;
 
-  console.log(props)
   return (
       <Modal isOpen={setModal} toggle={toggleModal}>
         <ModalHeader toggle={toggleModal}>Notification scheduled</ModalHeader>

@@ -34,22 +34,26 @@ const ChatWindow = () => {
   const openedChatbox = () => {
     return(
     <div style={{height: "300px",width: "400px",position: "fixed",bottom: "0",right: "2%"}}>
-      <div style={chatWindowTitle()} onClick={() => {setOpenChatWindow(false)}}>Eva</div>
+      <div style={chatWindowTitle()} onClick={() => {setOpenChatWindow(false)}}>Eva, your personal assistant</div>
       <div  id="webchat"  style={chatStyle()} role="main"></div> 
     </div>
   )}
 
   const closedChatbox = () => {
       return (
+      <div>
       <div style={{...chatWindowTitle(),bottom :"0"}} onClick={() => {setOpenChatWindow(true)}}>
-        Eva
-      </div> )
+        Eva, your personal assistant
+      </div> 
+      <div  id="webchat"  style={{...chatStyle(),visibility:"hidden"}} role="main"></div> 
+      </div>
+      )
   }
 
   return (
     <React.Fragment>
-            {/* { (isChatOpen) ? openedChatbox() : closedChatbox() }       */}
-            {openedChatbox()}
+            { (isChatOpen) ? openedChatbox() : closedChatbox() }      
+            {/* {openedChatbox()} */}
     </React.Fragment>
   );
 }
