@@ -40,7 +40,7 @@ function UserTable() {
           </tbody>
         </Table>)
         }
-        return (<div>No users found.</div>)
+        return (<div>Loading...</div>)
       }}
     </Query>
   );
