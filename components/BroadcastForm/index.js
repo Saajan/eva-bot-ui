@@ -134,7 +134,7 @@ const BroadcastForm = () => {
                           textAlign: "left",
                           cursor: "pointer",
                         }}
-                        onClick={() => toggle("general")}
+                        onClick={() => toggle("release")}
                       >
                         Release Notification
                       </div>
