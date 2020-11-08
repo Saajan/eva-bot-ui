@@ -4,7 +4,7 @@ import gql from "graphql-tag";
 import { Query } from "react-apollo";
 import { statusMap, types } from "data/lookups";
 
-const AuditQuery = gql`
+const BroadcastQuery = gql`
   {
     broadcasts   {
         id
@@ -19,7 +19,7 @@ const AuditQuery = gql`
 
 function BroadcastStatus() {
   return (
-    <Query query={AuditQuery}>
+    <Query query={BroadcastQuery}>
       {({ data }) => {
         if (data && data.broadcasts) {
         return (<Table>
@@ -38,8 +38,8 @@ function BroadcastStatus() {
                     <th scope="row">{i+1}</th>
                     <td>{item.title}</td>
                     <td>{types[item.type]}</td>
-                    <td>{item.date}</td>
-                    <td>{item.status}</td>
+                    <td>{new Date(item.date).toLocaleString()}</td>
+                    <td>{statusMap[item.status] || 'Error'}</td>
                 </tr>
             ))}
           </tbody>
