@@ -1,67 +1,54 @@
-import React, { useEffect, useState } from 'react';
-import { Table } from 'reactstrap';
+import React from "react";
+import { Table } from "reactstrap";
+import gql from "graphql-tag";
+import { Query } from "react-apollo";
+import { statusMap, types } from "data/lookups";
 
-
-
-const BroadcastStatus = () => {
-
-    const getList = async () => {
-        const response = await fetch('http://localhost:8000/api/v1/broadcasts/');
-        const list = await response.json();
-        console.log(list)
-        setList(list)
-        return list;
+const AuditQuery = gql`
+  {
+    broadcasts   {
+        id
+        title
+        description
+        type
+        date
+        status
     }
+  }
+`;
 
-    useEffect(() => {
-        getList();
-        let mounted = true;
-        if(mounted) {
-           getList()
-        }
-        return () => mounted = false;
-    }, []);
-
-    const renderEachMessage = (list) => {
-        const types = {
-            "general": "General",
-            "downtime": "Downtime",
-            "release": "Release",
-            "maintanence": "Maintanence"
-        };
-        const rows = list.map((item) => (
-            <tr key={item.id}>
-                <th scope="row">{item.id}</th>
-                <td>{item.title}</td>
-                <td>{types[item.type]}</td>
-                <td>{item.date}</td>
-                <td>{item.status}</td>
+function BroadcastStatus() {
+  return (
+    <Query query={AuditQuery}>
+      {({ data }) => {
+        if (data && data.broadcasts) {
+        return (<Table>
+          <thead>
+            <tr>
+                <th>#</th>
+                <th>Message</th>
+                <th>Type</th>
+                <th>Scheduled on</th>
+                <th>Status</th>
             </tr>
-        ));
-    
-        return rows;
-    }
+        </thead>
+          <tbody>
+            {data.broadcasts.map((item,i) => (
+                <tr key={item.id}>
+                    <th scope="row">{i+1}</th>
+                    <td>{item.title}</td>
+                    <td>{types[item.type]}</td>
+                    <td>{item.date}</td>
+                    <td>{item.status}</td>
+                </tr>
+            ))}
+          </tbody>
+        </Table>)
+        }
+        return (<div>No logs found.</div>)
+      }}
+    </Query>
+  );
+}
 
-    const [list, setList] = useState([]);
-
-    return (
-        <React.Fragment>
-            <Table striped>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Message</th>
-                        <th>Type</th>
-                        <th>Scheduled on</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {renderEachMessage(list)}
-                </tbody>
-            </Table>
-        </React.Fragment >
-    );
-};
-
-export default BroadcastStatus;
+export default React.memo(BroadcastStatus);

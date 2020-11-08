@@ -25,11 +25,6 @@ const AdminDashboard = () => {
     cache: new InMemoryCache(),
   });
 
-  // client.query({ 
-  //   query: 
-  // })
-
-
   const toggle = tab => {
     if(activeTab !== tab) setActiveTab(tab);
   }
