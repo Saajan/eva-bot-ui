@@ -45,7 +45,7 @@ function BroadcastStatus() {
           </tbody>
         </Table>)
         }
-        return (<div>No logs found.</div>)
+        return (<div>No notifications have been sent</div>)
       }}
     </Query>
   );
