@@ -45,7 +45,7 @@ function BroadcastStatus() {
           </tbody>
         </Table>)
         }
-        return (<div>No notifications have been sent</div>)
+        return (<div>Loding...</div>)
       }}
     </Query>
   );

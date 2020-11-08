@@ -44,7 +44,7 @@ function AuditTable() {
           </tbody>
         </Table>)
         }
-        return (<div>No logs found.</div>)
+        return (<div>Loding...</div>)
       }}
     </Query>
   );
