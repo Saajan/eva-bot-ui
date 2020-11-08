@@ -17,7 +17,7 @@ const ConfirmationModal = (props) => {
           You may check the status in the Notification status tab anytime.
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" style={{backgroundColor:"#5e72e4 !important"}} onClick={toggleModal}>OK</Button>{' '}
+          <Button style={{backgroundColor:"#5e72e4", color: "white"}} onClick={toggleModal}>OK</Button>{' '}
         </ModalFooter>
       </Modal>
   );

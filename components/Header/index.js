@@ -77,6 +77,8 @@ const Header = () => {
     setDropdownOpen(prevState => !prevState)
   };
 
+  const metricsItems = getCompareItems();
+
   const {pathname} = useRouter();
   const isComparePage = pathname === '/compare';
   const jsonData = [{
@@ -168,8 +170,8 @@ const Header = () => {
             </Dropdown>
           </div>
           {
-            getCompareItems() ? 
-            <div className="d-flex justify-content-between"><h1>Comparing </h1>{getCompareItems()}</div>
+            metricsItems ? 
+            <div className="d-flex justify-content-between"><h1>Comparing </h1>{metricsItems}</div>
             : null
           }
           
@@ -178,11 +180,12 @@ const Header = () => {
           </div>
         </div>
       </div>
-      {(!isComparePage) ? 
+      
       <div className="header pb-8">
         <Container fluid>
           <div className="header-body">
             {/* Card stats */}
+            {(!isComparePage) ? 
             <Row>
               {jsonData.map((data, i) => {
                 return (<Col lg="6" xl="3" key={i} className="pb-3">
@@ -217,11 +220,11 @@ const Header = () => {
                 </Col>)
               })}
             </Row>
+                 : null
+                }
           </div>
         </Container>
       </div>
-      : null
-}
     </React.Fragment>
   );
 };

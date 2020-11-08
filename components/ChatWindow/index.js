@@ -48,7 +48,8 @@ const ChatWindow = () => {
 
   return (
     <React.Fragment>
-            { (isChatOpen) ? openedChatbox() : closedChatbox() }      
+            {/* { (isChatOpen) ? openedChatbox() : closedChatbox() }       */}
+            {openedChatbox()}
     </React.Fragment>
   );
 }

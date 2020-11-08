@@ -5,3 +5,10 @@ export const statusMap = {
     '-1': 'Failed',
 }
 
+export const types = {
+    "general": "General",
+    "downtime": "Downtime",
+    "release": "Release",
+    "maintanence": "Maintanence"
+};
+
