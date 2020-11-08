@@ -16,6 +16,11 @@
    - kain -  backend service for scheduling and all CRUD
    - Eva - web chat service
 
+## Installation
+    yarn install:clean
+
+   - access the application in local on http://localhost:3000/
+
 
 
 
