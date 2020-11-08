@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const ChatWindow = () => {
-  const [isChatOpen, setOpenChatWindow] = useState(true);
+  const [isChatOpen, setOpenChatWindow] = useState(false);
   const chatStyle =  () =>{
     return {
       height: "284px",
@@ -34,7 +34,7 @@ const ChatWindow = () => {
   const openedChatbox = () => {
     return(
     <div style={{height: "300px",width: "400px",position: "fixed",bottom: "0",right: "2%"}}>
-      <div style={chatWindowTitle()} onClick={() => {setOpenChatWindow(false)}}>Eva, your personal assistant</div>
+      <div style={chatWindowTitle()} onClick={() => {setOpenChatWindow(false)}}>Eva</div>
       <div  id="webchat"  style={chatStyle()} role="main"></div> 
     </div>
   )}
@@ -43,7 +43,7 @@ const ChatWindow = () => {
       return (
       <div>
       <div style={{...chatWindowTitle(),bottom :"0"}} onClick={() => {setOpenChatWindow(true)}}>
-        Eva, your personal assistant
+        Eva
       </div> 
       <div  id="webchat"  style={{...chatStyle(),visibility:"hidden"}} role="main"></div> 
       </div>
